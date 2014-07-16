@@ -1,0 +1,75 @@
+### debian installation ###
+
+# download netboot iso
+
+# make bootable usb stick
+
+# install with only laptop and standard pkg
+
+# for dual linux, skip bootloader installation
+
+# install sudo
+su
+apt-get install sudo
+visudo
+  # add user to the end
+
+# install wifi firmware
+  # add "contrib non-free" to /etc/apt/source.list
+apt-get update && apt-get install firmware-iwlwifi(firmware)
+modprobe -r iwlwifi(firmware) ; modprobe iwlwifi(firmware)
+iwconfig -a
+ifconfig
+nano /etc/network/interface
+  # input ssid and psk
+  # auto interface
+  #   iface interface inet dhcp
+  #   wpa-ssid ssidName
+  #   wpa-key-mgmt WPA-PSK
+  #   wpa-group TKIP CCMP
+  #   wpa-psk passwd
+
+# enable chinese in /etc/locale.gen: en8859 and zn
+
+# install xorg xterm git build-essensial module-assistant ttf-wqy-microhei xbacklight
+sudo apt-get install xorg xterm git build-essensial module-assistant
+
+# install awesome 
+sudo apt-get install awesome awesome-extra
+  mkdir -p ~/.config/awesome
+  cp /etc/xdg/awesome/rc.lua .config/awesome/
+  cp /etc/X11/xinit/xinitrc .xinitrc
+    # add "exec awesome" at the end
+  xinit
+
+# install chrome
+wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google*.deb
+sudo apt-get install -f
+
+# modify ~/.config/awesome/rc.lua
+
+# install cv
+git clone https://github.com/Xfennec/cv
+cd cv/
+sudo make & sudo make install
+
+# keyboard customization
+sudo vi /usr/share/X11/xkb/keycodes/evdev
+  # modify keymap
+sudo apt-get install console-data
+sudo dpkg-reconfigure console-data
+  # don't touch keymap
+sudo vi /etc/console/boottime.kmap.gz
+  # modify keymap
+sudo install-setup /etc/console/boottime.kmap.gz
+
+
+# optimize bash & vim
+vi .bashrc
+sudo vi /etc/vim/vimrc
+
+# create directories
+mkdir desktop download note
+cd desktop/
+mkdir docs codes pics videos music
