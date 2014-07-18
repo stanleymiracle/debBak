@@ -256,10 +256,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,   alt     }, "Down",  function () awful.client.moveresize(  0,   20,   0,   0) end),
     awful.key({ modkey,   alt     }, "Left",  function () awful.client.moveresize(-20,    0,   0,   0) end),
     awful.key({ modkey,   alt     }, "Right", function () awful.client.moveresize( 20,    0,   0,   0) end),
-    awful.key({ alt,              }, "Up",    function () awful.client.moveresize(  0,    0,   0, -20) end),
-    awful.key({ alt,              }, "Down",  function () awful.client.moveresize(  0,    0,   0,  20) end),
-    awful.key({ alt,              }, "Left",  function () awful.client.moveresize(  0,    0, -20,   0) end),
-    awful.key({ alt,              }, "Right", function () awful.client.moveresize(  0,    0,  20,   0) end),
+    awful.key({ alt,    "Shift"   }, "Up",    function () awful.client.moveresize(  0,    0,   0, -20) end),
+    awful.key({ alt,    "Shift"   }, "Down",  function () awful.client.moveresize(  0,    0,   0,  20) end),
+    awful.key({ alt,    "Shift"   }, "Left",  function () awful.client.moveresize(  0,    0, -20,   0) end),
+    awful.key({ alt,    "Shift"   }, "Right", function () awful.client.moveresize(  0,    0,  20,   0) end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
