@@ -189,9 +189,9 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-	    batwidget,
+	      batwidget,
         volume,
-	    netwidget,
+	      netwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -373,9 +373,9 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    -- Set Sublime Text to always map on tags number 3 of screen 1.
+    -- { rule = { class = "Sublime_text" },
+    --   properties = { tag = tags[1][3] } },
 }
 -- }}}
 
