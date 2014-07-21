@@ -31,45 +31,55 @@ nano /etc/network/interface
 
 # enable chinese in /etc/locale.gen: en8859 and zn
 
-# install xorg xterm git build-essensial module-assistant ttf-wqy-microhei xbacklight
-sudo apt-get install xorg xterm git build-essensial module-assistant
+# install xorg xterm git build-essensial module-assistant 
+# ttf-wqy-microhei xbacklight
+apt-get install xorg xterm git build-essensial module-assistant
+apt-get install ttf-wqy-microhei xbacklight
+apt-get install awesome awesome-extra
+apt-get install git vim mplayer alsa-utils
+apt-get install console-data console-setup keyboard-configuration
 
-# install awesome 
-sudo apt-get install awesome awesome-extra
-  mkdir -p ~/.config/awesome
-  cp /etc/xdg/awesome/rc.lua .config/awesome/
-  cp /etc/X11/xinit/xinitrc .xinitrc
-    # add "exec awesome" at the end
-  xinit
+init 6
+
+# create directories
+mkdir desktop download note
+cd desktop/
+mkdir docs codes pics videos music
+
+# setup git
+cd note/
+git clone <URL>
+git config --global user.name "<USER>"
+git config --global user.email "<EMAIL>"
+
+
+# config awesome 
+mkdir -p ~/.config/awesome
+cp ~/path/of/rc.lua  ~/.config/awesome/
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+  # add "exec awesome" at the end
+xinit
+
+# keyboard customization
+sudo cp ~/path/of/evdev /usr/share/X11/xkb/keycodes/evdev
+sudo cp ~/path/of/keyboard /etc/default/keyboard
+sudo mkdir /usr/share/keymaps/i386/qgmlwy
+sudo cp ~/path/of/us.kmap.gz /usr/share/keymaps/i386/qgmlwy
+sudo cp ~/path/of/qgmlwy-layout.inc.gz /usr/share/keymaps/i386/include/
+
+# optimize bash & vim
+vi .bashrc
+sudo vi /etc/vim/vimrc
+  # set nu                 "enable number line indicator
+  # " tab settings
+  # set tabstop=4
+  # set shiftwidth=4
+  # set softtabstop=4
+  # set expandtab
+
 
 # install chrome
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google*.deb
 sudo apt-get install -f
 
-# modify ~/.config/awesome/rc.lua
-
-# install cv
-git clone https://github.com/Xfennec/cv
-cd cv/
-sudo make & sudo make install
-
-# keyboard customization
-sudo vi /usr/share/X11/xkb/keycodes/evdev
-  # modify keymap
-sudo apt-get install console-data
-sudo dpkg-reconfigure console-data
-  # don't touch keymap
-sudo vi /etc/console/boottime.kmap.gz
-  # modify keymap
-sudo install-setup /etc/console/boottime.kmap.gz
-
-
-# optimize bash & vim
-vi .bashrc
-sudo vi /etc/vim/vimrc
-
-# create directories
-mkdir desktop download note
-cd desktop/
-mkdir docs codes pics videos music
