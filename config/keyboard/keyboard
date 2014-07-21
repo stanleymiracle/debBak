@@ -9,4 +9,4 @@ XKBOPTIONS=""
 
 BACKSPACE="guess"
 
-KMAP="/usr/share/keymaps/i386/qwerty/us.kmap.gz"
+KMAP="/usr/share/keymaps/i386/qgmlwy/us.kmap.gz"
