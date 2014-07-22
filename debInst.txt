@@ -64,7 +64,7 @@ xinit
 sudo cp ~/path/of/evdev /usr/share/X11/xkb/keycodes/evdev
 sudo cp ~/path/of/keyboard /etc/default/keyboard
 sudo mkdir /usr/share/keymaps/i386/qgmlwy
-sudo cp ~/path/of/us.kmap.gz /usr/share/keymaps/i386/qgmlwy
+sudo cp ~/path/of/us.kmap.gz /usr/share/keymaps/i386/qgmlwy/
 sudo cp ~/path/of/qgmlwy-layout.inc.gz /usr/share/keymaps/i386/include/
 
 # optimize bash & vim
