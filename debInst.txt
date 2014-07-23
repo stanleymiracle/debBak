@@ -34,7 +34,7 @@ nano /etc/network/interface
 # install xorg xterm git build-essensial module-assistant 
 # ttf-wqy-microhei xbacklight
 apt-get install xorg xterm build-essensial module-assistant
-apt-get install ttf-wqy-microhei xbacklight
+apt-get install ttf-wqy-microhei xbacklight hwinfo
 apt-get install awesome awesome-extra
 apt-get install git vim mplayer alsa-utils
 apt-get install console-data console-setup keyboard-configuration
