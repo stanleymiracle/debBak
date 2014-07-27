@@ -374,8 +374,8 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Sublime Text to always map on tags number 3 of screen 1.
-    -- { rule = { class = "Sublime_text" },
-    --   properties = { tag = tags[1][3] } },
+    --{ rule = { class = "Sublime_text" },
+    --  properties = { tag = tags[1][3] } },
 }
 -- }}}
 
