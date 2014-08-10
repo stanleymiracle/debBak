@@ -35,7 +35,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/linuxfish/.config/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/fisher/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -100,8 +100,8 @@ battery_timer = timer({timeout = 2})
 battery_timer:add_signal("timeout", function()  batteryNotice("BAT1") end)
 battery_timer:start()
 function batteryNotice(adapter)
-    local fcur = io.open("/sys/class/power_supply/"..adapter.."/charge_now")
-    local fcap = io.open("/sys/class/power_supply/"..adapter.."/charge_full")
+    local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
+    local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
     local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
     if fcur and fcap and fsta then
         local cur = fcur:read()
@@ -120,9 +120,7 @@ function batteryNotice(adapter)
        fcap:close()
        fsta:close()
    else
-       --infos = "A/C"
    end
-   --battery_widget.text = infos
 end
 
 -- Create a net widget
@@ -244,6 +242,9 @@ globalkeys = awful.util.table.join(
 
     -- {{ Opens chrome incognito }} --
     awful.key({ modkey,           }, "c", function () awful.util.spawn("google-chrome -incognito") end),
+
+    -- {{ Open Sublime Text }} --
+    awful.key({ modkey,           }, "s", function () awful.util.spawn("sublime_text") end),
 
     -- {{ Volume Control}} --
     awful.key({  }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 6%+",    false) end),
