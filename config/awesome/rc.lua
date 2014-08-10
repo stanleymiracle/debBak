@@ -35,7 +35,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/fisher/.config/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/linuxfish/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
