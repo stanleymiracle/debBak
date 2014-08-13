@@ -100,8 +100,8 @@ battery_timer = timer({timeout = 2})
 battery_timer:add_signal("timeout", function()  batteryNotice("BAT1") end)
 battery_timer:start()
 function batteryNotice(adapter)
-    local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
-    local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
+    local fcur = io.open("/sys/class/power_supply/"..adapter.."/charge_now")
+    local fcap = io.open("/sys/class/power_supply/"..adapter.."/charge_full")
     local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
     if fcur and fcap and fsta then
         local cur = fcur:read()
@@ -119,8 +119,10 @@ function batteryNotice(adapter)
        fcur:close()
        fcap:close()
        fsta:close()
-   else
-   end
+    else
+       --infos = "A/C"
+    end
+    --battery_widget.text = infos
 end
 
 -- Create a net widget
